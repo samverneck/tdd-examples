@@ -1,0 +1,27 @@
+{
+  "name": "guiacc",
+  "authors": [
+    "mikaelhadler <mikaelhadler@gmail.com>"
+  ],
+  "description": "Guia do consumidor simplificado",
+  "main": "app.js",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-ui-router": "^0.3.2",
+    "angular-route": "^1.6.1",
+    "ng-file-upload": "^12.2.13",
+    "angular-animate": "^1.6.1",
+    "angular-bootstrap": "^2.3.2",
+    "bootstrap": "^3.3.7"
+  }
+}
