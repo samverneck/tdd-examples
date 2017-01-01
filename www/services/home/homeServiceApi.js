@@ -20,7 +20,8 @@
 				return $http.get(config.baseApiUrl+'products',objParam);
 			}
 			var _deleteProducts = function (objParam) {
-				return $http.delete(config.baseApiUrl+'products',objParam);
+				console.log(objParam);
+				return $http.delete(config.baseApiUrl+'products/'+objParam);
 			}
 
 

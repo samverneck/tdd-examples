@@ -18,8 +18,8 @@
 			</tr>
 			<tbody>
 				<tr ng-repeat="user in vm.user">					
-					<td>{{user.name}}</td>
-					<td><input type="button" value="Editar"></td>
+					<td>{{ user.name }}</td>
+					<td><input type="button" value="Editar" ng-click="vm.alterUser(user)"></td>
 					<td><input type="button" value="Excluir" ng-click="vm.deleteUser(user)"></td>
 				</tr>
 			</tbody>

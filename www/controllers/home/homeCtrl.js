@@ -10,13 +10,17 @@
 		var vm = this;
 		vm.setProducts = setProducts;
 		vm.getProducts = getProducts;
+		vm.deleteUser = deleteUser;
+		
 		vm.buscar = {};
 		vm.user = {};
 		
 		function setProducts(objParam) {
+
 			homeServiceApi.setProducts(objParam)
-				.then(function (result) {
-					console.log(result);
+				.then(function (result) {	
+					console.log(result.data.data);
+					vm.user.push(result.data.data);
 				});
 		}
 
@@ -28,8 +32,7 @@
 				});
 		}
 
-		function updateProducts(objParam){
-			
+		function updateProducts(objParam){			
 			homeServiceApi.putProducts(objParam)
 				.then(function (result) {
 					console.log(result);
@@ -43,9 +46,16 @@
 				});
 		}
 
-		function deleteUser(objParam) {
-			var index = vm.user.indexOf(objParam);
-			vm.user.splice(index, 1);
+		function deleteUser(objParam) {			
+			var paramDel = {
+				id : objParam._id
+			}
+			homeServiceApi.deleteProducts(paramDel.id)
+				.then(function (result) {					
+					var index = vm.user.indexOf(objParam);
+					vm.user.splice(index, 1);
+				});			
+			
 			
 
 		}
