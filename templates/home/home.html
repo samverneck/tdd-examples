@@ -1,28 +1,37 @@
 <div class="jumbotron" id="principal">
 	<div class="container-fluid" id="form-container">
-		<form>
-			<label> Nome</label>
-			<input type="text" 
-			ng-model="vm.cad.name">
+		<form id="form-container">
+			<input type="text" placeholder="Insert your product" 
+			ng-model="vm.cad.name"></input>
+			<!-- 
 			<input id="file" type="file" 
 			accept="image/*" 
 			ngf-max-size="10MB" 
-			ngf-select ng-model="vm.cad.imageFile">			
-			<input type="text" placeholder="Digite sua busca">
+			ngf-select 
+			ng-model="vm.cad.imageFile">			
+			<input type="text" placeholder="Enter your search">
 			<input type="button" value="Buscar" ng-model="vm.buscar">			
+			-->
 			<input type="submit" value="Enviar" ng-click="vm.setProducts(vm.cad)">
 		</form>	
 		<table class="table">
 			<tr>
-				<th>Nome</th>
+				<th>Name</th>
 			</tr>
 			<tbody>
-				<tr ng-repeat="user in vm.user">					
-					<td>{{ user.name }}</td>
-					<td><input type="button" value="Editar" ng-click="vm.alterUser(user)"></td>
-					<td><input type="button" value="Excluir" ng-click="vm.deleteUser(user)"></td>
+				<tr ng-repeat="product in vm.product">				
+					<td class="input-normal" id="name">{{ product.name }}</td>
+					<td class="input-normal" id="edit"><input type="button" value="Edit" ng-click="vm.editProducts(product)"></td>
+					<td class="input-normal" id="delete"><input type="button" value="Delete" 
+					ng-click="vm.deleteUser(product)"></td>
+					<td><input type="button" value="GetById" ng-click="vm.getProductId(product)"></td>
 				</tr>
 			</tbody>
 		</table>	
+		<div ng-show="vm.message">
+			<p id="error-message">
+				{{ vm.message }}
+			</p>
+		</div>
 	</div>
 </div>

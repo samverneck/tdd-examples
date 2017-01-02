@@ -8,7 +8,8 @@
 		'ui.bootstrap',
 		'ngFileUpload',
 		'mk.controllers',
-		'mk.services'				
+		'mk.services',
+		'toaster'				
 		])
 	.config(function($routeProvider){
 		$routeProvider.when("/",
