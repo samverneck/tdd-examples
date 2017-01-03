@@ -13,6 +13,7 @@
 		vm.getProducts = getProducts;
 		vm.editProducts = editProducts;
 		vm.keypress 	= keypress;
+		vm.cleanFields = cleanFields;
 		vm.cad = {};
 		vm.user = {};
 		vm.message = '';
@@ -20,6 +21,10 @@
 		vm.product = {};
 		var editable = false;
 		
+		function cleanFields() {
+			vm.cad.name = '';
+		}
+
 		function editProducts(objParam) {
 			vm.user = objParam;			
 			vm.cad.name = objParam.name;		 
@@ -39,6 +44,7 @@
 					.then(function (result) {	
 						console.log(result.data.data);
 						vm.product.unshift(result.data.data);						
+						cleanFields();
 					});
 				}
 				else{			
@@ -52,7 +58,7 @@
 		function getProducts() {
 			homeServiceApi.getProducts()
 				.then(function (result) {
-					vm.product = result.data.data;				
+					vm.product = result.data.data.reverse();				
 				});
 		}
 
