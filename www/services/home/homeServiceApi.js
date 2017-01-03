@@ -17,7 +17,7 @@
 			}
 
 			var _getProductId = function (objParam) {				
-				return $http.get(config.baseApiUrl+'products/'+objParam._id);
+				return $http.get(config.baseApiUrl+'products/'+objParam);
 			}
 			var _deleteProducts = function (objParam) {			
 				console.log(objParam);
@@ -25,7 +25,7 @@
 			}
 
 			var _putProducts = function (objParam) {									
-				return $http.put(config.baseApiUrl+'products',objParam)
+				return $http.put(config.baseApiUrl+'products/'+objParam._id,objParam)
 			}
 
 			return {

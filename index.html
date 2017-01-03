@@ -6,9 +6,10 @@
   <meta name="description" content="Guia de leis do consumidor simplificada">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">  
 </head>
 <body>  
+
   <ng-view></ng-view>
   <!-- Módulo principal angular -->
 
@@ -17,17 +18,13 @@
   
   <!-- Módulos externos-->
   <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="lib/angular-bootstrap/ui-bootstrap.js"></script>
-  <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="lib/angular-bootstrap/ui-bootstrap.js"></script>  
   <script src="lib/angular-route/angular-route.js"></script>
   <script src="lib/ng-file-upload/ng-file-upload.js"></script>
-  <script src="bower_components/AngularJS-Toaster/toaster.js"></script>
-
-
+  <script src="lib/AngularJS-Toaster/toaster.js"></script>
 
   <!-- Módulo principal da aplicação -->
   <script src="www/app.js"></script>
-  
   
   <!-- Controllers  -->
   <script src="www/controllers/contacts/contactsCtrl.js"></script>
@@ -35,7 +32,11 @@
   
   <!-- Services  -->
   <script src="www/services/home/homeServiceApi.js"></script>
-
+  <!-- Directives -->
+  <script src="www/directives/home/navbarHome.js"></script>
+  <script src="www/directives/home/maskName.js"></script>
+  <script src="www/directives/home/alertHome.js"></script>
+  <script src="www/directives/register/register.js"></script>
   <!-- Config -->
   <script src="www/config/config.js"></script>
   

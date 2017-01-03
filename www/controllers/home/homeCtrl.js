@@ -12,26 +12,33 @@
 		vm.deleteUser = deleteUser;
 		vm.getProducts = getProducts;
 		vm.editProducts = editProducts;
-		vm.getProductId = getProductId;
+		vm.keypress 	= keypress;
 		vm.cad = {};
+		vm.user = {};
 		vm.message = '';
 		vm.search = {};
 		vm.product = {};
-		vm.editable = false;
+		var editable = false;
 		
-		function editProducts(objParam) {						
-			vm.cad.name = objParam.name;			 
-			vm.editable = true;			
+		function editProducts(objParam) {
+			vm.user = objParam;			
+			vm.cad.name = objParam.name;		 
+			editable = true;		
+		}
+
+		function keypress(e,objParam) {			
+			if(e.keyCode == 13)
+				setProducts(objParam);
 		}
 
 		function setProducts(objParam) {
 		
-			if(!vm.editable){
+			if(!editable){
 				if (objParam != undefined && objParam != ''){			
 				homeServiceApi.setProducts(objParam) 
 					.then(function (result) {	
 						console.log(result.data.data);
-							vm.product.push(result.data.data);						
+						vm.product.unshift(result.data.data);						
 					});
 				}
 				else{			
@@ -45,37 +52,19 @@
 		function getProducts() {
 			homeServiceApi.getProducts()
 				.then(function (result) {
-					vm.product = result.data.data;
-					console.log(vm.product);
+					vm.product = result.data.data;				
 				});
 		}
 
-		function updateProducts(objParam){		
-			console.log(vm.product);
-
-			for (var product in vm.product){
-				if(vm.product[product].name == objParam.name){
-					var paramAlter = {
-						_id: vm.product[product]._id,
-						name: objParam.name
-					}
-					homeServiceApi.putProducts(paramAlter)
-					.then(function (result) {
-						console.log(result);
-					});
-				}
-				
-			}
-		}
-
-		function getProductId(objParam) {
-			// console.log(objParam);
-			var paramId = {
-				_id : objParam._id
-			}			
-			homeServiceApi.getProductId(paramId)
-				.then(function (result) {
-					console.log(result);					
+		function updateProducts(objParam){
+			objParam._id = vm.user._id;	
+			homeServiceApi.getProductId(objParam._id)
+				.then(function (result) {					 
+					console.log(result.data.data);
+					 homeServiceApi.putProducts(objParam)
+					  	.then(function (result) {
+					  		getProducts();
+					  	});
 				});
 		}
 

@@ -2,6 +2,7 @@
 	'use strict';	
 	angular.module('mk.controllers',[]);
 	angular.module('mk.services',[]);
+	angular.module('mk.directives',[]);
 
 	angular.module('guiacc',[
 		'ngRoute',
@@ -9,6 +10,7 @@
 		'ngFileUpload',
 		'mk.controllers',
 		'mk.services',
+		'mk.directives',
 		'toaster'				
 		])
 	.config(function($routeProvider){
