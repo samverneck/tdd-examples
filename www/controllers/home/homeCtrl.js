@@ -32,8 +32,14 @@
 		}
 
 		function keypress(e,objParam) {			
-			if(e.keyCode == 13)
-				setProducts(objParam);
+			if(e.keyCode == 13){
+				if(objParam.name){
+					setProducts(objParam);
+				}
+				else{
+					vm.message = 'Please, insert a name'
+				}
+			}
 		}
 
 		function setProducts(objParam) {
@@ -42,7 +48,6 @@
 				if (objParam != undefined && objParam != ''){			
 				homeServiceApi.setProducts(objParam) 
 					.then(function (result) {	
-						console.log(result.data.data);
 						vm.product.unshift(result.data.data);						
 						cleanFields();
 					});
@@ -66,10 +71,10 @@
 			objParam._id = vm.user._id;	
 			homeServiceApi.getProductId(objParam._id)
 				.then(function (result) {					 
-					console.log(result.data.data);
 					 homeServiceApi.putProducts(objParam)
 					  	.then(function (result) {
 					  		getProducts();
+					  		cleanFields();
 					  	});
 				});
 		}
@@ -80,7 +85,6 @@
 			}			
 			homeServiceApi.deleteProducts(paramDel)
 				.then(function (result) {					
-					console.log(result);
 					var index = vm.product.indexOf(objParam);
 					vm.product.splice(index, 1);
 				});	

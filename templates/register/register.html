@@ -1,6 +1,9 @@
 <div class="container-fluid" id="form-container" ng-controller="homeCtrl as vm">
-  <form id="form-container">
-    <input class="form-control" type="text" placeholder="Insert your product" 
+  <div class="alert alert-danger" role="alert" ng-show="vm.message">
+    <p>{{ vm.message }}</p>
+  </div>
+  <form novalidate name="form" id="form-container">
+    <input class="form-control" name="name" type="text" placeholder="Insert your product" 
     ng-model="vm.cad.name"
     ng-keypress="vm.keypress($event, vm.cad)"></input>    
   </form> 
@@ -17,9 +20,4 @@
       </tr>
     </tbody>
   </table>  
-  <div ng-show="vm.message">
-    <p id="error-message">
-      {{ vm.message }}
-    </p>
-  </div>
 </div>

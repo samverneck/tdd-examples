@@ -6,12 +6,13 @@
 
 	angular.module('guiacc',[
 		'ngRoute',
+		'toaster',		
+		'ngAnimate',
 		'ui.bootstrap',
 		'ngFileUpload',
 		'mk.controllers',
 		'mk.services',
-		'mk.directives',
-		'toaster'				
+		'mk.directives'
 		])
 	.config(function($routeProvider){
 		$routeProvider.when("/",
