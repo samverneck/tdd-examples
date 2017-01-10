@@ -14,14 +14,25 @@
 		'mk.services',
 		'mk.directives'
 		])
-	.config(function($routeProvider){
-		$routeProvider.when("/",
-			{
+	.config(['$routeProvider', '$locationProvider',function($routeProvider, $locationProvider){
+		$locationProvider.html5Mode(true);
+		$routeProvider
+		.when("/",{
+				templateUrl: "../templates/home/home.html",
+				controller: "homeCtrl",
+				controllerAs: "vm"
+			})
+		.when("/register",{
+				templateUrl: "../templates/register/register.html",
+				controller: "homeCtrl",
+				controllerAs: "vm"
+			})
+		.when("/:id",{
 				templateUrl: "../templates/home/home.html",
 				controller: "homeCtrl",
 				controllerAs: "vm"
 			}
 		);
-	})
+	}])
 
 })();

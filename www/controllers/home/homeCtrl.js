@@ -4,9 +4,9 @@
 	.module('mk.controllers')
 	.controller('homeCtrl', homeCtrl);
 
-	homeCtrl.$inject = ['homeServiceApi','toaster'];
+	homeCtrl.$inject = ['homeServiceApi','toaster','$routeParams'];
 
-	function homeCtrl(homeServiceApi,toaster) {
+	function homeCtrl(homeServiceApi,toaster,$routeParams) {
 		var vm = this;
 		vm.setProducts = setProducts;
 		vm.deleteUser = deleteUser;
@@ -14,13 +14,14 @@
 		vm.editProducts = editProducts;
 		vm.keypress 	= keypress;
 		vm.cleanFields = cleanFields;
+		vm.routeParams = $routeParams;
 		vm.cad = {};
 		vm.user = {};
 		vm.message = '';
 		vm.search = {};
 		vm.product = {};
 		var editable = false;
-		
+		console.log(vm.routeParams);
 		function cleanFields() {
 			vm.cad.name = '';
 		}
