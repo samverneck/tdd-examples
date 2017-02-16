@@ -21,18 +21,7 @@
 				templateUrl: "../templates/home/home.html",
 				controller: "homeCtrl",
 				controllerAs: "vm"
-			})
-		.when("/register",{
-				templateUrl: "../templates/register/register.html",
-				controller: "homeCtrl",
-				controllerAs: "vm"
-			})
-		.when("/:id",{
-				templateUrl: "../templates/home/home.html",
-				controller: "homeCtrl",
-				controllerAs: "vm"
-			}
-		);
-	}])
+			});
+	}]);
 
 })();
