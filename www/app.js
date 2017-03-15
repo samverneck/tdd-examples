@@ -8,8 +8,6 @@
 		'ngRoute',
 		'toaster',		
 		'ngAnimate',
-		'ui.bootstrap',
-		'ngFileUpload',
 		'mk.controllers',
 		'mk.services',
 		'mk.directives'
